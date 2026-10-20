@@ -144,10 +144,154 @@
       document.getElementById("message").focus();
     });
   });
-  document.getElementById("analyze-form").addEventListener("submit", () => {
-    const button = document.getElementById("submit-btn");
-    button.disabled = true;
-    button.textContent = "Checking message…";
+  
+const form = document.getElementById("analyze-form");
+
+form.addEventListener("submit", function (event) {
+  event.preventDefault();
+
+  const messageInput = document.getElementById("message");
+  const button = document.getElementById("submit-btn");
+
+  if (!messageInput.value.trim()) {
+    messageInput.focus();
+    messageInput.placeholder = "Please enter a message to scan first...";
+    return;
+  }
+
+  if (form.dataset.scanning === "true") return;
+  form.dataset.scanning = "true";
+
+  // Add the scanning animation styles
+  if (!document.getElementById("scan-animation-style")) {
+    const style = document.createElement("style");
+    style.id = "scan-animation-style";
+    style.textContent = `
+      .scan-status {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        margin-top: 20px;
+        padding: 22px;
+        border: 1px solid #bfdbfe;
+        border-radius: 18px;
+        background: linear-gradient(135deg, #eff6ff, #fff);
+        animation: scanAppear .35s ease both;
+      }
+      .scan-orbit {
+        width: 64px;
+        height: 64px;
+        flex-shrink: 0;
+        display: grid;
+        place-items: center;
+        border-radius: 50%;
+        border: 3px solid #bfdbfe;
+        border-top-color: #2563eb;
+        animation: scanSpin 1s linear infinite;
+      }
+      .scan-orbit span {
+        animation: scanCounterSpin 1s linear infinite;
+        font-size: 27px;
+      }
+      .scan-copy { flex: 1; min-width: 0; }
+      .scan-copy strong { color: #1e40af; font-size: 14px; }
+      .scan-copy p {
+        color: #607392;
+        font-size: 12px;
+        line-height: 1.6;
+        margin: 6px 0 12px;
+      }
+      .scan-progress {
+        height: 5px;
+        background: #dbeafe;
+        border-radius: 10px;
+        overflow: hidden;
+      }
+      .scan-progress span {
+        display: block;
+        height: 100%;
+        width: 35%;
+        border-radius: 10px;
+        background: linear-gradient(90deg, #60a5fa, #1d4ed8);
+        animation: scanProgress 2.4s ease-in-out forwards;
+      }
+      .scan-spinner {
+        display: inline-block;
+        width: 12px;
+        height: 12px;
+        margin-right: 8px;
+        vertical-align: -2px;
+        border: 2px solid #ffffff80;
+        border-top-color: #fff;
+        border-radius: 50%;
+        animation: scanSpin .7s linear infinite;
+      }
+      @keyframes scanSpin { to { transform: rotate(360deg); } }
+      @keyframes scanCounterSpin {
+        to { transform: rotate(-360deg); }
+      }
+      @keyframes scanProgress {
+        from { width: 5%; }
+        to { width: 100%; }
+      }
+      @keyframes scanAppear {
+        from { opacity: 0; transform: translateY(8px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .scan-orbit, .scan-orbit span, .scan-progress span {
+          animation-duration: 3s;
+        }
+      }
+    `;
+    document.head.appendChild(style);
+  }
+
+  // Show the loading panel
+  let status = document.getElementById("scan-status");
+  if (!status) {
+    status = document.createElement("div");
+    status.id = "scan-status";
+    status.className = "scan-status";
+    status.setAttribute("role", "status");
+    status.setAttribute("aria-live", "polite");
+    form.insertAdjacentElement("afterend", status);
+  }
+
+  status.innerHTML = `
+    <div class="scan-orbit"><span>🛡️</span></div>
+    <div class="scan-copy">
+      <strong id="scan-title">Analyzing message patterns...</strong>
+      <p id="scan-step">Checking for urgent wording and pressure tactics.</p>
+      <div class="scan-progress"><span></span></div>
+    </div>
+  `;
+
+  button.disabled = true;
+  button.innerHTML =
+    '<span class="scan-spinner"></span> Scanning...';
+
+  const title = document.getElementById("scan-title");
+  const step = document.getElementById("scan-step");
+
+  setTimeout(() => {
+    title.textContent = "Checking suspicious indicators...";
+    step.textContent =
+      "Looking for suspicious links, unusual requests and warning signs.";
+  }, 800);
+
+  setTimeout(() => {
+    title.textContent = "Preparing your safety report...";
+    step.textContent =
+      "Organizing the findings and recommended next steps.";
+  }, 1600);
+
+  // Submit to the existing Flask scanner after the animation.
+  setTimeout(() => {
+    HTMLFormElement.prototype.submit.call(form);
+  }, 2400);
+});
+
   });
 </script>
 </body>
