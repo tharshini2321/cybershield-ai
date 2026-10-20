@@ -288,9 +288,10 @@ form.addEventListener("submit", function (event) {
 
   // Submit to the existing Flask scanner after the animation.
   
-  setTimeout(() => {
-    HTMLFormElement.prototype.submit.call(form);
-  }, 2400);
+  
+setTimeout(() => {
+  HTMLFormElement.prototype.submit.call(form);
+}, 2400);
 });
 </script>
 </body>
