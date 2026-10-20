@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111f37">
+  <title>CyberShield AI — Think. Check. Stay Safe.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--navy:#111f37;--blue:#2563eb;--blue2:#60a5fa;--ink:#172b4d;--muted:#607392;--line:#dbe7f8;--pale:#f2f7ff;--white:#fff}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;color:var(--ink);background:#f8fbff}
+    a{color:inherit;text-decoration:none}.topbar{background:var(--navy);color:#fff;position:sticky;top:0;z-index:5;box-shadow:0 8px 30px #12223a18}
+    .nav{max-width:1180px;margin:auto;padding:15px 24px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .brand{display:flex;align-items:center;gap:11px;font-weight:800;font-size:20px;letter-spacing:-.5px}.brand-mark{width:42px;height:42px;border-radius:14px;background:linear-gradient(145deg,#8bd3ff,#2563eb);display:grid;place-items:center;font-size:23px;box-shadow:0 7px 20px #2563eb55}.brand small{display:block;font-size:10px;font-weight:500;color:#c5d6f0;letter-spacing:.4px;margin-top:2px}
+    .navlinks{display:flex;gap:24px;font-size:12px;color:#e0eaf8}.navlinks a:hover{color:#8bd3ff}.nav-cta{border:0;border-radius:12px;padding:11px 16px;background:#bdeaff;color:#12315c;font-weight:800;font-size:12px;cursor:pointer}
+    .hero{background:radial-gradient(ellipse at 78% 18%,#d5eaff 0,transparent 35%),linear-gradient(135deg,#eef7ff,#fff 65%);overflow:hidden}
+    .hero-inner{max-width:1180px;margin:auto;padding:62px 24px 34px;display:grid;grid-template-columns:1.05fr .95fr;gap:34px;align-items:center}
+    .eyebrow{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:99px;background:#dbeafe;color:#1d4ed8;font-size:11px;font-weight:800;letter-spacing:.5px;text-transform:uppercase}
+    h1{font-size:clamp(35px,4.6vw,57px);line-height:1.08;letter-spacing:-2.4px;margin:18px 0 16px;color:#15294a}h1 span{color:var(--blue)}
+    .lead{font-size:16px;line-height:1.75;max-width:560px;color:#4c6284}.features{display:flex;gap:22px;margin-top:26px;flex-wrap:wrap}.feature{display:flex;align-items:center;gap:9px;font-size:12px;font-weight:700;color:#29466d}.feature-icon{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:#dbeafe;font-size:17px}
+    .hero-art{min-height:270px;display:grid;place-items:center;position:relative}.orb{width:min(100%,440px);height:300px;border-radius:48% 52% 45% 55%;background:linear-gradient(140deg,#e0f2fe,#b9d9ff);position:absolute;transform:rotate(-6deg);box-shadow:inset 0 0 70px #fff9}
+    .phone{position:relative;width:180px;height:290px;border:8px solid #193b6d;border-radius:30px;background:linear-gradient(#fff,#edf5ff);transform:rotate(7deg);box-shadow:0 28px 50px #174b8d3b;padding:20px 12px;z-index:1}
+    .phone-notch{height:7px;width:58px;background:#183963;border-radius:9px;margin:-10px auto 22px}.alert-symbol{width:58px;height:58px;border-radius:19px;background:#fee2e2;color:#dc2626;font-size:30px;display:grid;place-items:center;margin:0 auto 18px}.phone-line{height:9px;background:#dbeafe;border-radius:8px;margin:9px 0}.phone-line.short{width:62%}.phone-pill{height:30px;background:#2563eb;border-radius:10px;margin-top:20px}
+    .floating{position:absolute;z-index:2;border:1px solid #ffffffd9;background:#ffffffdf;backdrop-filter:blur(8px);padding:13px 15px;border-radius:16px;box-shadow:0 14px 35px #224a8520;font-size:12px;font-weight:800}.floating b{display:block;color:#16a36a;font-size:11px;margin-top:5px}.float-left{left:0;top:44px}.float-right{right:0;bottom:38px}
+    .main{max-width:1180px;margin:-4px auto 0;padding:0 24px 54px}.workspace{display:grid;grid-template-columns:1.65fr .75fr;gap:20px;align-items:stretch}
+    .panel{background:#ffffffed;border:1px solid var(--line);border-radius:22px;padding:25px;box-shadow:0 16px 45px #244c8010}.panel-head{display:flex;align-items:center;gap:13px;margin-bottom:18px}.round-icon{width:45px;height:45px;border-radius:15px;background:linear-gradient(145deg,#75b7ff,#2563eb);color:white;display:grid;place-items:center;font-size:22px}.panel h2{font-size:20px;letter-spacing:-.6px;margin:0}.sub{color:var(--muted);font-size:12px;line-height:1.65;margin:6px 0 0}
+    textarea{display:block;width:100%;min-height:155px;resize:vertical;border:1px solid #cddcf1;border-radius:14px;padding:17px;font:13px/1.7 Inter,sans-serif;color:var(--ink);outline:none;transition:.2s;background:#fcfdff}textarea:focus{border-color:#5798f8;box-shadow:0 0 0 4px #dbeafe}
+    .form-bottom{display:flex;align-items:center;justify-content:space-between;gap:15px;margin-top:15px}.tip{font-size:11px;line-height:1.6;color:#526b8e;background:#eff6ff;border-radius:12px;padding:12px 14px;flex:1}.btn{border:0;border-radius:12px;padding:14px 20px;background:linear-gradient(135deg,#3b82f6,#1d4ed8);color:#fff;font-weight:800;font-size:12px;cursor:pointer;box-shadow:0 9px 20px #2563eb30;transition:transform .18s,box-shadow .18s}.btn:hover{transform:translateY(-2px);box-shadow:0 12px 24px #2563eb42}.btn:disabled{opacity:.65;cursor:wait}
+    .examples{margin-top:17px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:11px;color:var(--muted)}.chip{border:1px solid #d7e5f8;border-radius:99px;background:white;padding:8px 11px;color:#315987;cursor:pointer;font:600 11px Inter,sans-serif}.chip:hover{background:#eff6ff;border-color:#93c5fd}
+    .side-panel{background:linear-gradient(150deg,#e8f3ff,#d7e9ff);border:1px solid #d0e3fc;border-radius:22px;padding:24px;display:flex;flex-direction:column;justify-content:space-between}.side-icon{font-size:34px}.side-panel h3{margin:12px 0 8px;font-size:18px}.side-panel p{font-size:12px;line-height:1.7;color:#4f678a}.risk-key{display:grid;gap:9px;margin-top:18px}.risk-item{display:flex;align-items:center;gap:11px;background:#ffffffbd;border-radius:12px;padding:11px}.risk-dot{width:29px;height:29px;border-radius:50%;display:grid;place-items:center;color:white;font-weight:900}.green{background:#16a36a}.amber{background:#f59e0b}.red{background:#ef4444}.risk-item b{font-size:11px;display:block}.risk-item small{font-size:10px;color:#6b7f9d}
+    .result{margin-top:22px;border:1px solid var(--line);border-radius:18px;padding:22px;background:#fff;animation:appear .3s ease}.result-top{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}.risk-label{font-weight:800;font-size:20px}.score-wrap{display:flex;align-items:center;gap:14px}.score-ring{width:66px;height:66px;border-radius:50%;display:grid;place-items:center;background:conic-gradient(var(--ring) calc(var(--score)*1%),#e7eef8 0);position:relative;font-size:18px;font-weight:800}.score-ring:before{content:"";position:absolute;inset:6px;background:white;border-radius:50%}.score-ring span{position:relative}.meter{height:7px;background:#e9eff8;border-radius:99px;overflow:hidden;margin:18px 0}.meter-fill{height:100%;border-radius:99px;background:var(--ring);width:var(--score)}.finding-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:15px}.finding{border:1px solid #e1eaf6;border-radius:12px;padding:13px}.finding b{font-size:12px;display:block;margin-bottom:6px}.finding p{font-size:11px;line-height:1.6;color:#637795;margin:0}.result h3{font-size:14px;margin:20px 0 10px}.tips{padding-left:19px;margin:0}.tips li{font-size:12px;line-height:1.7;color:#4f6484;margin:7px 0}.notice{margin-top:14px;font-size:10px;line-height:1.6;color:#7485a0}
+    .section{padding:58px 0 4px;text-align:center}.section h2{font-size:29px;letter-spacing:-1px;margin:0}.section .sub{font-size:13px}.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:34px;text-align:center}.step{padding:20px 13px}.step-icon{width:62px;height:62px;border-radius:22px;background:#e0edff;display:grid;place-items:center;margin:0 auto 15px;font-size:26px}.step:nth-child(2) .step-icon{background:#ede9fe}.step:nth-child(3) .step-icon{background:#ffe4e6}.step:nth-child(4) .step-icon{background:#d1fae5}.step h3{font-size:13px;margin:0 0 9px}.step p{font-size:11px;line-height:1.7;color:#657b9b;margin:0}
+    .safety{margin-top:45px;border-radius:22px;padding:28px;background:var(--navy);color:#fff;display:grid;grid-template-columns:1fr 1fr;gap:25px;align-items:center}.safety h2{margin:0 0 10px;font-size:23px}.safety p{color:#cad7ea;font-size:12px;line-height:1.8}.safety ul{margin:0;padding-left:18px;color:#e3edfb;font-size:12px;line-height:2}
+    footer{background:#0d192c;color:#d5e2f4;margin-top:55px}.footer-inner{max-width:1180px;margin:auto;padding:22px 24px;display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap;align-items:center}.footer-inner strong{font-size:13px}.footer-inner small{font-size:10px;color:#a6bad7}
+    @keyframes appear{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+    @media(max-width:850px){.navlinks{display:none}.hero-inner{grid-template-columns:1fr;padding-top:45px}.hero-art{min-height:270px}.workspace{grid-template-columns:1fr}.side-panel{display:none}.steps{grid-template-columns:repeat(2,1fr)}.safety{grid-template-columns:1fr}.float-left{left:2%}.float-right{right:2%}}
+    @media(max-width:540px){.nav{padding:12px 16px}.brand{font-size:17px}.nav-cta{padding:10px}.hero-inner{padding:38px 18px 25px}h1{letter-spacing:-1.5px}.hero-art{min-height:240px}.orb{height:230px}.phone{transform:scale(.83) rotate(7deg)}.floating{font-size:10px;padding:10px}.main{padding:0 14px 35px}.panel{padding:17px}.form-bottom{align-items:stretch;flex-direction:column}.btn{width:100%}.finding-list{grid-template-columns:1fr}.steps{gap:3px}.step{padding:16px 5px}.section h2{font-size:24px}.safety{padding:22px}.score-ring{width:58px;height:58px}}
+  </style>
+</head>
+<body>
+<header class="topbar">
+  <nav class="nav">
+    <a class="brand" href="#home"><span class="brand-mark">🛡</span><span>CyberShield <span style="color:#78c5ff">AI</span><small>Think. Check. Stay Safe.</small></span></a>
+    <div class="navlinks"><a href="#home">⌂ &nbsp;Home</a><a href="#about">About</a><a href="#features">Features</a><a href="#how">How It Works</a><a href="#safety">Safety Tips</a></div>
+    <a class="nav-cta" href="#checker">🛡 &nbsp;Stay Protected</a>
+  </nav>
+</header>
+
+<section class="hero" id="home">
+  <div class="hero-inner">
+    <div>
+      <div class="eyebrow">🔐 Your everyday scam-checking companion</div>
+      <h1>Not Every Message<br>Is What It <span>Seems.</span></h1>
+      <p class="lead">CyberShield AI helps you spot common warning signs in suspicious messages and links before you take action. Paste a message, check the signals, and make a safer decision.</p>
+      <div class="features">
+        <div class="feature"><span class="feature-icon">🛡️</span><span>Spot Scam<br>Warning Signs</span></div>
+        <div class="feature"><span class="feature-icon">⚡</span><span>Get Clear<br>Explanations</span></div>
+        <div class="feature"><span class="feature-icon">🔒</span><span>Make Safer<br>Choices</span></div>
+      </div>
+    </div>
+    <div class="hero-art" aria-label="Cybersecurity illustration">
+      <div class="orb"></div>
+      <div class="floating float-left">🔎 Scam signal scan<b>✓ Clear explanations</b></div>
+      <div class="floating float-right">🛡️ Stay alert<b>Think before you click</b></div>
+      <div class="phone"><div class="phone-notch"></div><div class="alert-symbol">!</div><div class="phone-line"></div><div class="phone-line"></div><div class="phone-line short"></div><div class="phone-pill"></div><div class="phone-line" style="margin-top:18px"></div><div class="phone-line short"></div></div>
+    </div>
+  </div>
+</section>
+
+<main class="main" id="checker">
+  <div class="workspace">
+    <section class="panel" id="features">
+      <div class="panel-head"><div class="round-icon">▤</div><div><h2>Analyze a Message</h2><p class="sub">Paste a suspicious SMS, email, or link to check for predefined scam indicators.</p></div></div>
+      <form method="POST" id="analyze-form">
+        <textarea name="message" id="message" maxlength="10000" placeholder="Example: URGENT! Your account is suspended. Verify your account and enter your OTP immediately..." aria-label="Message to analyze">{{ message }}</textarea>
+        <div class="form-bottom">
+          <div class="tip">💡 <strong>Quick tip:</strong> Watch for pressure, unexpected prizes, suspicious links, and requests for passwords or one-time codes.</div>
+          <button class="btn" type="submit" id="submit-btn">🛡 &nbsp; Check Message</button>
+        </div>
+      </form>
+      <div class="examples"><strong>Try a sample:</strong>
+        <button class="chip" type="button" data-sample="URGENT! Your bank account will be suspended. Verify your account and send your OTP immediately.">🚨 Suspicious bank SMS</button>
+        <button class="chip" type="button" data-sample="Congratulations! You won a free gift. Pay a processing fee to claim your prize at http://bit.ly/example">🎁 Prize message</button>
+        <button class="chip" type="button" data-sample="Hi, are we still meeting at the library at 3 pm today?">💬 Normal message</button>
+      </div>
+      {% if result %}
+        {% if result.error %}
+          <div class="result" role="alert"><strong>⚠️ {{ result.error }}</strong></div>
+        {% else %}
+          <section class="result" aria-live="polite" aria-label="Analysis result">
+            <div class="result-top">
+              <div><div class="eyebrow" style="margin-bottom:10px">Analysis complete</div><div class="risk-label" style="color:{% if result.color == 'red' %}#dc2626{% elif result.color == 'amber' %}#b77905{% else %}#15803d{% endif %}">{{ result.label }}</div><p class="sub">{{ result.summary }}</p></div>
+              <div class="score-wrap"><div><div style="font-size:10px;color:#6b7f9d;font-weight:700">INDICATIVE SCORE</div><div style="font-size:11px;color:#6b7f9d;margin-top:4px">Not a guarantee</div></div><div class="score-ring" style="--score:{{ result.score }};--ring:{% if result.color == 'red' %}#ef4444{% elif result.color == 'amber' %}#f59e0b{% else %}#16a36a{% endif %}"><span>{{ result.score }}</span></div></div>
+            </div>
+            <div class="meter"><div class="meter-fill" style="--score:{{ result.score }}%;--ring:{% if result.color == 'red' %}#ef4444{% elif result.color == 'amber' %}#f59e0b{% else %}#16a36a{% endif %}"></div></div>
+            <h3>🔍 What we noticed</h3>
+            <div class="finding-list">
+              {% for item in result.findings %}
+              <div class="finding"><b>{{ item.label }}{% if item.points %} <span style="color:#7d91ad;font-weight:500">+{{ item.points }}</span>{% endif %}</b><p>{{ item.explanation }}</p></div>
+              {% endfor %}
+            </div>
+            <h3>🧭 What you should do next</h3>
+            <ul class="tips">{% for tip in result.tips %}<li>{{ tip }}</li>{% endfor %}</ul>
+            <p class="notice">Important: This prototype uses transparent, predefined rules. It is not a trained AI model, does not check live threat-intelligence feeds, and cannot prove whether a message is safe or fraudulent.</p>
+          </section>
+        {% endif %}
+      {% endif %}
+    </section>
+    <aside class="side-panel">
+      <div><div class="side-icon">🛡️</div><h3>Your Safety Matters</h3><p>Understand the warning signs, learn why they matter, and choose your next step carefully.</p></div>
+      <div class="risk-key">
+        <div class="risk-item"><span class="risk-dot green">✓</span><span><b>Lower Risk</b><small>Few matching signals found</small></span></div>
+        <div class="risk-item"><span class="risk-dot amber">!</span><span><b>Medium Risk</b><small>Pause and verify</small></span></div>
+        <div class="risk-item"><span class="risk-dot red">!</span><span><b>High Risk</b><small>Multiple warning signs</small></span></div>
+      </div>
+      <p style="font-size:10px;margin-bottom:0">Risk levels are indicative and based only on the rules in this demo.</p>
+    </aside>
+  </div>
+
+  <section class="section" id="how">
+    <h2>How CyberShield AI Works</h2><p class="sub">Simple checks. Understandable signals. Safer decisions.</p>
+    <div class="steps">
+      <div class="step"><div class="step-icon">💬</div><h3>1. Paste a Message</h3><p>Enter the text of a message or include a link you want to check.</p></div>
+      <div class="step"><div class="step-icon">🔎</div><h3>2. Check the Signals</h3><p>The prototype checks predefined phrases and certain link patterns.</p></div>
+      <div class="step"><div class="step-icon">⚠️</div><h3>3. Understand the Result</h3><p>See a risk indicator and clear explanations of matching warning signs.</p></div>
+      <div class="step"><div class="step-icon">🛡️</div><h3>4. Choose Safely</h3><p>Use the safety tips and verify through trusted official channels.</p></div>
+    </div>
+  </section>
+
+  <section class="safety" id="safety">
+    <div><div class="eyebrow" style="background:#243c5d;color:#a9d9ff">A safer digital habit</div><h2>Pause. Verify. Then act.</h2><p>Scam messages often try to rush people into decisions. Take a moment to check who contacted you and whether the request makes sense.</p></div>
+    <ul><li>Never share an OTP, password, or PIN.</li><li>Do not trust a link just because it looks familiar.</li><li>Verify unexpected requests using a known official contact.</li><li>If money is at risk, contact your bank immediately through its official channel.</li></ul>
+  </section>
+  <section class="section" id="about"><h2>Built for Digital Awareness</h2><p class="sub">CyberShield AI is a student prototype designed to make common scam signals easier to understand.<br>It demonstrates a foundation that can be expanded with validated machine learning and trusted threat-intelligence services.</p></section>
+</main>
+
+<footer><div class="footer-inner"><div><strong>🛡 CyberShield AI</strong><br><small>Think. Check. Stay Safe.</small></div><small>Student prototype · Python + Flask · IBM Z Datathon 2026</small><small>CyberShield AI · Use caution online</small></div></footer>
+<script>
+  document.querySelectorAll("[data-sample]").forEach(button => {
+    button.addEventListener("click", () => {
+      document.getElementById("message").value = button.dataset.sample;
+      document.getElementById("message").focus();
+    });
+  });
+  document.getElementById("analyze-form").addEventListener("submit", () => {
+    const button = document.getElementById("submit-btn");
+    button.disabled = true;
+    button.textContent = "Checking message…";
+  });
+</script>
+</body>
+</html>
