@@ -160,9 +160,8 @@ textarea:focus {
   }
 
   .side-panel {
-    display: flex;
-    gap: 15px;
-  }
+  display: none;
+}
 
   .risk-key {
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -382,7 +381,7 @@ form.addEventListener("submit", function (event) {
     style.id = "scan-animation-style";
     style.textContent = `
       .scan-status {
-        display: flex;
+        
         align-items: center;
         gap: 18px;
         margin-top: 20px;
