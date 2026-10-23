@@ -275,14 +275,16 @@ textarea:focus {
   animation: phoneFloat 4.5s ease-in-out infinite;
 }
 
+
 @keyframes phoneFloat {
   0%, 100% {
-    transform: rotate(7deg) translateY(0);
+    translate: 0 0;
   }
   50% {
-    transform: rotate(4deg) translateY(-9px);
+    translate: 0 -9px;
   }
 }
+
 
 /* Gentle movement on floating security labels */
 .floating {
@@ -490,9 +492,10 @@ form.addEventListener("submit", function (event) {
     style.id = "scan-animation-style";
     style.textContent = `
       .scan-status {
-        
-        align-items: center;
-        gap: 18px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
         margin-top: 20px;
         padding: 22px;
         border: 1px solid #bfdbfe;
