@@ -361,6 +361,222 @@ textarea:focus {
   }
 }
 
+  
+/* CyberShield AI animated robot */
+.robot {
+  width: 210px;
+  height: 245px;
+  position: relative;
+  z-index: 1;
+  animation: robotHover 3.5s ease-in-out infinite;
+  filter: drop-shadow(0 20px 22px #6d28d933);
+}
+
+.robot-antenna {
+  position: absolute;
+  left: 101px;
+  top: 0;
+  height: 28px;
+  width: 8px;
+  border-radius: 8px;
+  background: #8b5cf6;
+}
+
+.robot-antenna span {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  top: -7px;
+  left: -3px;
+  background: #22d3ee;
+  box-shadow: 0 0 18px #22d3ee;
+  animation: robotPulse 1.5s ease-in-out infinite alternate;
+}
+
+.robot-head {
+  position: absolute;
+  width: 132px;
+  height: 91px;
+  left: 39px;
+  top: 24px;
+  border-radius: 28px;
+  background: linear-gradient(145deg, #fff, #c7d2fe);
+  border: 3px solid #a78bfa;
+  box-shadow: inset 0 -5px 12px #7c3aed16;
+  z-index: 2;
+}
+
+.robot-face {
+  position: absolute;
+  inset: 11px;
+  border-radius: 19px;
+  background: #111827;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+}
+
+.robot-eye {
+  width: 12px;
+  height: 16px;
+  border-radius: 50%;
+  background: #22d3ee;
+  box-shadow: 0 0 12px #22d3ee88;
+  animation: robotBlink 4s infinite;
+}
+
+.robot-eye:nth-child(2) {
+  animation-delay: .15s;
+}
+
+.robot-smile {
+  position: absolute;
+  width: 22px;
+  height: 9px;
+  bottom: 11px;
+  border-bottom: 3px solid #a78bfa;
+  border-radius: 50%;
+}
+
+.robot-ear {
+  position: absolute;
+  top: 25px;
+  width: 12px;
+  height: 30px;
+  border-radius: 6px;
+  background: #7c3aed;
+  border: 2px solid #22d3ee;
+}
+
+.robot-ear.left { left: -10px; }
+.robot-ear.right { right: -10px; }
+
+.robot-body {
+  position: absolute;
+  top: 121px;
+  left: 51px;
+  width: 108px;
+  height: 77px;
+  border: 3px solid #a78bfa;
+  border-radius: 25px;
+  background: linear-gradient(145deg, #a78bfa, #6d28d9);
+  display: grid;
+  place-items: center;
+}
+
+.robot-screen {
+  width: 54px;
+  height: 46px;
+  border-radius: 13px;
+  background: #111827;
+  color: #22d3ee;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1px;
+  box-shadow: inset 0 0 12px #22d3ee22;
+}
+
+.robot-screen span { font-size: 23px; line-height: 24px; }
+.robot-screen small { font-size: 7px; letter-spacing: 1px; }
+.robot-light {
+  position: absolute;
+  bottom: 7px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #22d3ee;
+  box-shadow: 0 0 9px #22d3ee;
+}
+
+.robot-arm {
+  position: absolute;
+  top: 132px;
+  width: 20px;
+  height: 57px;
+  border-radius: 12px;
+  background: linear-gradient(#e0e7ff, #a78bfa);
+  border: 2px solid #8b5cf6;
+  transform-origin: top center;
+  z-index: 0;
+}
+
+.robot-arm.left {
+  left: 31px;
+  transform: rotate(18deg);
+}
+
+.robot-arm.right {
+  right: 31px;
+  transform: rotate(-18deg);
+  animation: robotWave 2.8s ease-in-out infinite;
+}
+
+.robot-leg {
+  position: absolute;
+  top: 190px;
+  width: 23px;
+  height: 31px;
+  border-radius: 9px;
+  background: #c7d2fe;
+  border: 2px solid #8b5cf6;
+}
+
+.robot-leg.left { left: 76px; }
+.robot-leg.right { right: 76px; }
+
+.robot-foot {
+  position: absolute;
+  top: 215px;
+  width: 34px;
+  height: 13px;
+  border-radius: 9px;
+  background: #22d3ee;
+  box-shadow: 0 0 10px #22d3ee44;
+}
+
+.robot-foot.left { left: 67px; }
+.robot-foot.right { right: 67px; }
+
+@keyframes robotHover {
+  0%, 100% { translate: 0 0; }
+  50% { translate: 0 -10px; }
+}
+
+@keyframes robotWave {
+  0%, 100% { rotate: 0deg; }
+  50% { rotate: -20deg; }
+}
+
+@keyframes robotBlink {
+  0%, 43%, 47%, 100% { scale: 1 1; }
+  45% { scale: 1 .1; }
+}
+
+@keyframes robotPulse {
+  from { opacity: .65; scale: .9; }
+  to { opacity: 1; scale: 1.12; }
+}
+
+@media (max-width: 540px) {
+  .robot {
+    scale: .88;
+    transform-origin: center center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .robot,
+  .robot-eye,
+  .robot-arm.right,
+  .robot-antenna span {
+    animation: none !important;
+  }
+}
+
   </style>
 </head>
 <body>
@@ -388,7 +604,33 @@ textarea:focus {
       <div class="orb"></div>
       <div class="floating float-left">🔎 Scam signal scan<b>✓ Clear explanations</b></div>
       <div class="floating float-right">🛡️ Stay alert<b>Think before you click</b></div>
-      <div class="phone"><div class="phone-notch"></div><div class="alert-symbol">!</div><div class="phone-line"></div><div class="phone-line"></div><div class="phone-line short"></div><div class="phone-pill"></div><div class="phone-line" style="margin-top:18px"></div><div class="phone-line short"></div></div>
+      
+<div class="robot" role="img" aria-label="Animated CyberShield security robot">
+  <div class="robot-antenna"><span></span></div>
+  <div class="robot-head">
+    <div class="robot-ear left"></div>
+    <div class="robot-ear right"></div>
+    <div class="robot-face">
+      <span class="robot-eye"></span>
+      <span class="robot-eye"></span>
+      <span class="robot-smile"></span>
+    </div>
+  </div>
+  <div class="robot-arm left"></div>
+  <div class="robot-arm right"></div>
+  <div class="robot-body">
+    <div class="robot-screen">
+      <span>✦</span>
+      <small>CYBER</small>
+    </div>
+    <div class="robot-light"></div>
+  </div>
+  <div class="robot-leg left"></div>
+  <div class="robot-leg right"></div>
+  <div class="robot-foot left"></div>
+  <div class="robot-foot right"></div>
+</div>
+
     </div>
   </div>
 </section>
